@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+
+  <h1>Ejercicio para repasar en clase</h1>
+
+  <p>Suponiendo que tenemos la función <code>getPH()</code> que se conecta a un servidor externo y a unos sensores que nos indican la calidad del agua de una piscina de un hotel.</p>
+
+  <pre>let phAgua = getPH();</pre>
+
+
+  <p>Crea un código javascript que indique si el agua tiene un ph neutro (entre <code>6.5</code> y <code>8.5</code>), ligeramente alcalino (entre <code>8.5</code> y <code>11</code>), muy alcalino (mayor que <code>11</code>), ligeramente ácido (entre <code>3.5</code> y <code>6.5</code>) o muy ácido (menor que <code>3.5</code>
+    ). </p>
+
+
+
+  <h2>Solución</h2>
+
+  <form>
+    <label>PH del agua
+      <input type="number" id="txtPH">
+    </label>
+    <button type="button" id="btnCalcular">Analizar</button>
+  </form>
+
+  <div class="notice" id="divSolucion"></div>
+
+</body>
+</html>
