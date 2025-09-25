@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <title>Ejercicios con cadenas</title>
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <p><strong>Ejercicio1</strong>: Ve a la web <code>www.aliexpress.com</code> y abre la consola. Recupera la URL y reemplaza el primer <code>.com</code> por un <code>.es</code> y pásala a mayúsculas. ¿En qué posición empieza el último ES que aparece?</p>
+  <p>Solución:</p>
+<pre>
+location.href.replace(".com", ".es").toUpperCase();
+location.href.replace(".com", ".es").toUpperCase().lastIndexOf("ES");
+</pre>
+
+<p><strong>Ejercicio 2</strong>: partiendo de "caca de la vaca" crea una cadena que tenga un - entre cada letra. Es decir: c-a-c-a- -d-e- -l-a- -v-a-c-a </p>
+
+<p>Solución:</p>
+<pre>
+"caca de la vaca".replaceAll("","-").slice(1,-1);
+</pre>
+
+<p>
+  <strong>Ejercicio 3</strong>: Partiendo del navigator.userAgent suma todos los números que aparecen en la cadena de caracteres.
+  Por ejemplo si el userAgent es <code>Firefox/117.0</code> el resultado será <code>9</code> (<code>1+1+7+0</code>).
+  <p><strong>Nota</strong>: tal vez las funciones <code>isNaN()</code> y <code>Number()</code> puedan serte de utilidad.</p>
+</p>
+
+
+<p><strong>Ejercicio 4a</strong>: Partiendo de <code>"echa el freno, Magdaleno"</code> haz que se cuenten el número de vocales que tiene el texto.</p>
+  
+</body>
+</html>
