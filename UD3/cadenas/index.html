@@ -8,6 +8,8 @@
   <script src="code.js" defer></script>
 </head>
 <body>
+  <h1>Ejercicios de cadenas de caracteres (String)</h1>
+
   <p><strong>Ejercicio1</strong>: Ve a la web <code>www.aliexpress.com</code> y abre la consola. Recupera la URL y reemplaza el primer <code>.com</code> por un <code>.es</code> y pásala a mayúsculas. ¿En qué posición empieza el último ES que aparece?</p>
   <p>Solución:</p>
 <pre>
@@ -23,13 +25,103 @@ location.href.replace(".com", ".es").toUpperCase().lastIndexOf("ES");
 </pre>
 
 <p>
-  <strong>Ejercicio 3</strong>: Partiendo del navigator.userAgent suma todos los números que aparecen en la cadena de caracteres.
+  <strong>Ejercicio 3</strong>: Partiendo del <code>navigator.userAgent</code> suma todos los números que aparecen en la cadena de caracteres.
   Por ejemplo si el userAgent es <code>Firefox/117.0</code> el resultado será <code>9</code> (<code>1+1+7+0</code>).
   <p><strong>Nota</strong>: tal vez las funciones <code>isNaN()</code> y <code>Number()</code> puedan serte de utilidad.</p>
 </p>
 
 
 <p><strong>Ejercicio 4a</strong>: Partiendo de <code>"echa el freno, Magdaleno"</code> haz que se cuenten el número de vocales que tiene el texto.</p>
-  
+
+<p>Solución:</p>
+<pre>
+let s="echa el freno, Magdaleno";
+let solucion = s.length - s.replaceAll("a","").replaceAll("e","").replaceAll("i","").replaceAll("o","").replaceAll("u","").replaceAll("á","").replaceAll("é","").replaceAll("í","").replaceAll("ó","").replaceAll("ú","").replaceAll("ü","").length;
+</pre>
+
+<p><strong>Ejercicio 5</strong>: Los reyes magos te encargan crear un método que permita averiguar qué hay en los regalos ya envueltos, por ejemplo:</p>
+
+<pre>
+  //*******
+  //* aro *
+  //*******
+  let a="*******\n* aro *\n*******";
+  let p="***********\n* patines *\n***********";
+  let ao="*****************\n* anillo de oro *\n*****************";
+  console.log( desenvolver(a) ); // "aro"
+  console.log( desenvolver(ao) ); // "anillo de oro"
+</pre>
+
+<p>Nota: intenta resolverlo sin usar un bucle.</p>
+
+
+<p>Solución:</p>
+<pre>
+function desenvolver(a){
+  return a.split("\n")[1].slice(2,-2)
+}
+</pre>
+
+
+
+<p><strong>Ejercicio 5b:</strong> Haz justo lo contrario, una función que reciba una cadena de caracteres y la devuelva envuelta, por ejemplo:</p>
+
+<pre>
+  console.log( envolver("reloj") ); // *********\n* reloj *\n*********
+</pre>
+
+<p>Nota: intenta resolverlo sin usar un bucle.</p>
+
+<p>Solución:</p>
+<pre>
+function envolver(regalo){
+  let longitud = regalo.length+4;
+  let sol = "*".repeat(longitud);
+  sol += `\n* ${regalo} *\n`;
+  sol += "*".repeat(longitud);
+  return sol;
+}
+</pre>
+
+
+<p><strong>Ejercicio 6</strong>: Un editor que utilizas en tu web te devuelve las listas creadas con Markdown así: <code>"* Uno\n* Dos\n* Tres \n* Cuatro\n"</code>.</p>
+
+<p>
+  Crea una función que reciba esas cadenas de caracteres y devuelva otra equivalente de una lista HTML:
+  <code>&lt;ul&gt;&lt;li&gt;Uno&lt;/li&gt;&lt;li&gt;Dos&lt;/li&gt;&lt;li&gt;Tres&lt;/li&gt;&lt;li&gt;Cuatro&lt;/li&gt;&lt;/ul&gt;"</code>
+  <!-- <code><ul><li>Uno</li><li>Dos</li><li>Tres</li><li>Cuatro</li></ul>"</code> -->
+</p>
+
+<p>Solución:</p>
+<pre>
+function convertirMDtoHTML(listaMD){
+  const arrayLista = listaMD.split("\n");
+  let sol="<ul>";
+  for(let i=0; i<arrayLista.length; i++){
+    let elemMD = arrayLista[i]; //cada elemento del array es "* Uno"
+    elemMD = elemMD.slice(2).trim(); //quitamos el * y el espacio del principio y si hay alguno al final
+    sol+=`<li>${elemMD}</li>`;
+  }
+  sol+="</ul>"
+  return sol;
+}
+let lista = "* Uno\n* Dos\n* Tres \n* Cuatro\n";
+console.log( convertirMDtoHTML(lista) );
+</pre>
+
+
+<p><strong>Ejercicio 7</strong>: Crea una función que indique si una cadena de caracteres es un palíndromo. Lo es porque si no se tienen en cuenta los espacios (ni otros símbolos de puntuación) se lee igual de izquierda a derecha y de derecha a izquierda. Por ejemplo <code>"arriba la birra"</code> o <code>"someto votemos"</code>.</p>
+
+<p>Solución:</p>
+<pre>
+
+function esPalindromo(pal){
+  return sol;
+}
+
+let p = "arriba la birra"
+console.log(esPalindromo);
+</pre>
+
 </body>
 </html>
