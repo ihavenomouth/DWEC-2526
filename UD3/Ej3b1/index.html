@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <h1>Ejercicio 3b1:</h1>
+  
+  <p>Crea una web que contenga dentro del &lt;body&gt; un &lt;h1&gt; con el título del ejercicio, un botón con la etiqueta <em>Ver Resultado</em> y una etiqueta &lt;main&gt; que será donde realmente trabajaremos.</p>
+
+  <p>Dentro de la etiqueta &lt;main&gt; añade un par de divisiones cada una con una pregunta. Cuando el usuario haga click en ellas se cambiará su contenido por la respuesta y un botón con la etiqueta <em>Acertada</em>. Si el usuario vuelve a hacer click sobre la división o el botón volverá a aparecer la pregunta.</p>
+
+  <h2>Ampliación:</h2>
+  <p>Si pulsó sobre el botón <em>Acertada</em>, la respuesta se marcará como contestada correctamente (por ejemplo usando un array de <code>respuestasAcertadas</code>).</p>
+  <p>Si pulsa sobre el botón <em>Resultado</em> mostrará el número de preguntas marcadas como contestadas correctamente, el total de preguntas y el porcentaje de aciertos </p>
+
+
+
+  <h2>Solución</h2>
+  
+
+  <form>
+    <button type="button" id="btnVerResultado">Ver resultado</button>
+  </form>
+
+  <main>
+    <div class="notice">¿De qué color era el caballo blanco de Santiago?</div>
+    <div class="notice">¿En qué año se produjo la revolución española de 1868 conocida como <em>La gloriosa</em>?</div>
+  </main>
+
+</body>
+</html>
