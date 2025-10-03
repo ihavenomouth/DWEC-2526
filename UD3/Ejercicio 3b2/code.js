@@ -15,7 +15,7 @@ function cambiarTema(){
     document.cookie = "tema=azul; SameSite=None;Secure";
   }
   else{
-    document.body.style.backgroundColor="#663322";
+    document.body.style.backgroundColor="#662233";
     document.cookie = "tema=rojo; SameSite=None;Secure";
   }
 }
@@ -24,14 +24,20 @@ function cambiarTema(){
 
 function comprobarCookieDeTema(){
   //1.- Recuperamos la cookie
-  const tema = document.cookie.split(";").filter(c=>c.startsWith("tema="))[0].split("=")[1];
+  let tema="";
+  try{
+    tema = document.cookie.split(";").filter(c=>c.startsWith("tema="))[0].split("=")[1];
+  }
+  catch(error){
+    return;
+  }
   
   ///2.- Dependiendo del tema...
   if(tema=="azul"){
     document.body.style.backgroundColor="#223366";
   } 
   else if(tema=="rojo"){
-    document.body.style.backgroundColor="#663322";
+    document.body.style.backgroundColor="#662233";
   }
   else{
     //no existe la cookie
