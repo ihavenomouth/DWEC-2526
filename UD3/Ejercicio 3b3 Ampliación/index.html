@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <h1>Ejercicio 3b3 Ampliación</h1>
+  <p>Desde 2019 es obligatorio llevar un control de las entradas y salidas de la empresa. Crea una web que tenga tres botones: <em>Fichar, Mostrar y Resetear</em>.</p>
+
+  <p>Cuando se pulse <em>Fichar</em> se guardará en <code>localStorage.fichajes</code> la fecha y hora actual (recuerda o busca el objeto <code>Date</code>).</p>
+
+  <p>Cuando se pulse <em>Mostrar</em> se Mostrará una lista de todos los fichajes guardados en <code>localStorage.fichajes</code>.</p>
+
+  <p>Cuando se pulse <em>Resetear</em> se eliminará el contenido de <code>localStorage.fichajes</code>. </p>
+
+  <h2>Solución control horario</h2>
+  <form>
+    <br>
+    <label>
+      <input type="radio" name="radioTipo" id="" value="entrada"> Entrada
+    </label>
+
+    <label>
+      <input type="radio" name="radioTipo" id="" value="salida"> Salida
+    </label>
+    <br>
+
+    <button type="button" id="btnFichar">Fichar</button>
+    <button type="button" id="btnMostrar">Mostrar</button>
+    <button type="button" id="btnResetear">Resetear</button>
+  </form>
+
+  <div id="divFichajes" class="notice"></div>
+
+
+</body>
+</html>

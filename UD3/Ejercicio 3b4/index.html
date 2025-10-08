@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3b4</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+  
+  <h1>Ejercicio 3b4 </h1>
+  <p>Crea una web que contenga un cuadro de texto, un textarea y un botón de guardar. Cada vez que se pulse el botón de guardar se guardará el contenido del textarea en una nota con el título escrito en el cuadro de texto. Añade un botón de cargar que sirva para recuperar la nota cuyo título sea el que aparece en el cuadro de texto.</p>
+
+  <p><strong>Ampliación</strong>: Si ya existe un texto con ese título, avisa al usuario para saber si quiere sobreescribirlo.</p>
+
+  <p><strong>Ampliación 2</strong>: Añade un botón que permita eliminar un texto indicando su título. </p>
+
+  <h2>Solución</h2>
+  <form>
+    <input type="text" id="txtTitulo"><br>
+    <textarea id="txtTexto" cols="50" rows="7"></textarea><br>
+    <button type="button" id="btnGuardar">Guardar</button>
+    <button type="button" id="btnCargar">Cargar</button>
+  </form>
+</body>
+</html>
