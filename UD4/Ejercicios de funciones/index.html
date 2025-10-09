@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+
+  <h1>Ejercicio 4a1: </h1>
+  <p>Crea una función que indique si una persona es mayor de edad devolviendo un booleano. La función recibirá un número.</p>
+
+<pre>
+function mayorDeEdad( edad ){ return edad&gt;=18; }
+</pre>
+
+  <h1>Ejercicio 4a1b: </h1>
+  <p>Escribe la función de las tres maneras que hemos visto: clásica, como función anónima y como función flecha.</p>
+<pre>
+function mayorDeEdad( edad ){ return edad &gt;= 18; }
+
+const mayorDeEdad = function(edad){ return edad &gt;= 18; }
+
+const mayorDeEdad = edad =&gt; edad &gt;= 18;
+</pre>
+
+  <h1>Ejercicio 4a2: </h1>
+  <p>Crea una función que reciba cualquier número de parámetros numéricos y devuelva su media. </p>
+
+<pre>
+const media = (...valores)=&gt;{
+  let total = 0;
+  for(let i=0; i&lt;valores.length; i++){
+    total+=valores[i];
+  }
+
+  if( valores.length != 0 )
+    return total/valores.length;
+  return 0;
+}
+</pre>
+
+</body>
+</html>
