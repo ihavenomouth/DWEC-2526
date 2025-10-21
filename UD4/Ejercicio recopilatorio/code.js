@@ -3,6 +3,11 @@
 ////////////////////////////
 // FUNCTIONES
 //////////////////////////
+
+
+/**
+ * Crea una tarea, la añade al localStorage y la muestra en pantalla
+ */
 const crearTarea = () => {
   //1.- Recuperamos el texto de la tarea que el usuario quiera crear
   const txtTarea = document.querySelector("#txtTarea");
@@ -29,6 +34,12 @@ const crearTarea = () => {
 
 
 
+
+/**
+ * Muestra una lista de tareas en una división
+ * @param {Array} arr Array con la lista de tareas
+ * @param {HTMLDivElement} div División en la que se mostrará la lista de tareas
+ */
 const mostrarTareas = (arr, div)=>{
   let sol = "<ul>";
   
@@ -47,7 +58,7 @@ const mostrarTareas = (arr, div)=>{
 ////////////////////////////
 // MAIN
 //////////////////////////
-/// localStorage.tareas = ["bajara la basura", "Comrpar el pan"]
+/// localStorage.tareas = ["bajar la basura", "Comprar el pan"]
 /// localStorage.tareasCompletadas = ["Sacar a la perra"]
 
 //1.- Recuperamos el botón y le añadimos funcionalidad
