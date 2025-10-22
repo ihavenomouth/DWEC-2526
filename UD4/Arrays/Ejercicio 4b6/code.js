@@ -26,6 +26,7 @@ document.querySelector("#btnAnadir").addEventListener("click", e=>{
 
 document.querySelector("#btnEliminar").addEventListener("click", e=>{
   if(arrNombres.length==0) return;
+
   const nombre = txtNombre.value.trim();
 
   if(!nombre){
@@ -34,8 +35,13 @@ document.querySelector("#btnEliminar").addEventListener("click", e=>{
   }
 
   const pos=arrNombres.findIndex(n=>n===nombre);
+  if(pos==-1)
+    return;
+
   arrNombres.splice(pos,1);
 });
+
+
 
 
 
