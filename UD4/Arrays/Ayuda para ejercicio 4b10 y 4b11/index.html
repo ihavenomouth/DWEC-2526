@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+
+<h1>Ejercicio 4b10</h1>
+<p>Escribe una función que reciba como entrada un número entero de 5 cifras como máximo y construya una tabla de dos columnas con sus dígitos.</p>
+
+<p>Por ejemplo: 1835 = [1,8,3,5]. A continuación se recorrerá el array escribiendo un número en cada fila de la tabla, la primera columna tendrá el número y la segunda su nombre (uno, ocho, tres, cinco). </p>
+
+<h2>Ayuda</h2>
+<p>La función recibe un entero, habría que comprobar si el número es >=0 y <=99999.</p>
+<p>Convertimos el número a cadena de caracteres, si el número es 1831 se puede hacer <code>String(1831)</code>. ¿Qué pasa si el número tiene menos de cinco cifras? Se les añaden ceros por la izquierda.
+</p>
+<p>Ahora habría que convertir la cadena a array y cada elemento del array a su equivalente en letras, por ejemplo con un map.</p>
+<p>El resto del ejercicio es trivial.</p>
+<pre>
+let num = 183;
+let numStringuificado = String(num).padStart(5,"0");
+
+numStringuificado.split("").map(n=&gt;{
+  if(n=="1") return "uno"
+  else if(n=="2") return "dos"
+  else if(n=="3") return "tres"
+  else if(n=="4") return "cuatro"  
+  ...
+}) ;
+</pre>
+
+
+<h1>Ejercicio 4b11</h1>
+<p>Para rellenar la primitiva queremos visualizar un array de seis elementos, conteniendo cada celda un número aleatorio comprendido entre 1 y 49 en la que habremos de evitar la posibilidad de que un número se repita dos veces. </p>
+
+<p>Para resolverlo crearemos una función que nos devuelva un número aleatorio entre 1 y 49.</p>
+<p>Si ese número no está en el array que guarda los números de la primitiva lo añadimos. En caso contrario lo ignoramos y pedimos otro hasta tener los 6 que me piden.</p>
+<pre>
+const primitiva=[];
+
+while(primitiva.length&lt;6){
+  const n = generaNumAleatorioEntre1y49();
+  if(primitiva.indexOf(n)==-1)primitiva.push(n)
+}
+console.table(primitiva);
+</pre>
+  
+</body>
+</html>

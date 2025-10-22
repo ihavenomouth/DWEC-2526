@@ -4,8 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teoría de arrays</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 </head>
 <body>
-  <h1>Teoría de arrays</h1>
+<h1>Teoría de arrays</h1>
+<h2>Uso básico</h2>
+<p>Creación, modificación de un elemento, acceso y longitud.</p>
+<pre>let arr=["uno", "dos", "tres", "cuatro", "cinco"];
+arr[4] = 2;
+console.log( arr[0], arr[4], arr.length ); // "uno" 2 5
+</pre>
+
+<h2>Recorridos del array</h2>
+<pre>let arr=["uno", "dos", "tres", "cuatro", "cinco"];
+
+arr.forEach(  (e,i)=>console.log(`Elemento ${i}: ${e}`));
+
+for(let e of arr){ console.log(e); }
+
+for(let i=0; i&lt;arr.length;i++){ 
+  arr[i] = 3
+  console.log(e); 
+}
+</pre>
+
+<h2>Métodos más interesantes</h2>
+<pre>let arr=["uno", "dos", "tres", "cuatro", "cinco", "tres"];
+
+// ¿Todos los elementos tienen 3 letras?
+arr.every(e=>e.length===3); //false
+
+// Encuentra el elemento llamado "dos"
+arr.find(e=>e==="dos");
+
+// Devuelve todas las ocurrencias de "tres" en el array
+arr.filter(e=>e==="tres");
+
+// Devuelve los elementos que están en las posiciones 1 ("dos"), 2("tres") y 3 "(cuatro)"
+arr.slice(1,4);
+
+// Elimina 4 elementos desde la posición 1 y los cambia por "hola"
+arr.splice(1,4, "hola"); // queda ["uno", "hola", "tres"];
+
+// Inserta "caracola" justo detrás de "hola"
+arr.splice(2,0,"caracola");
+
+
+
+</pre>
 </body>
 </html>

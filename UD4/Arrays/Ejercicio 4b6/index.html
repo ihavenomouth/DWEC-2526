@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <h1>Ejercicio 4b6</h1>
+  <p>Crea una web con una división con id="divResultado", un textbox y tres botones: Añadir, Mostrar y Eliminar.</p>
+  <p>Al ejecutarse el código se creará automáticamente un array vacío llamado arrNombres.</p>
+  <p>El usuario introducirá en el textbox un nombre que se añadirá al array al pulsar el botón Añadir.</p>
+  <p>Al pulsar el botón eliminar se eliminará la primera aparición del nombre que esté en el textbox.</p>
+  <p>Al pulsar el botón Mostrar ocurrirá lo siguiente:</p>
+	<ul>
+    <li>Se borrará el contenido de la división HTML.</li>
+    <li>Se ordenará el array alfabéticamente</li>
+    <li>Se mostrará en la división con id="divResultado" el contenido del array en una lista ordenada.</li>
+  </ul>
+  <p>Comprobaciones:</p>
+	<ul>
+    <li>Si el array está vacío, el botón Eliminar no hará nada.</li>
+    <li>Si el array está vacío, el botón Mostrar indicará en la división que no hay nada que mostrar.</li>
+    <li>Se comprobará que hay algo escrito en el textbox cuando se pulsen los botones Añadir y Mostrar (en caso contrario, se mostrará un mensaje de error).</li>
+  </ul>
+
+  <h2>Solución</h2>
+  <form>
+    <input type="text" id="txtNombre">
+    <button type="button" id="btnAnadir">Añadir</button>
+    <button type="button" id="btnMostrar">Mostrar</button>
+    <button type="button" id="btnEliminar">Eliminar</button>
+  </form>
+  <div id="resultado" class="notice"></div>
+</body>
+</html>
