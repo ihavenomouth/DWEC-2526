@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="objetos.js" defer></script>
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <h1>Ejercicio de perros</h1>
+
+<p>Crea una web que contenga tres textboxes, uno para el nombre del perro, otro para la edad y otro para la raza. Además habrá los siguientes botones con estos comportamientos:</p>
+
+    <ul>
+      <li>Botón de Añadir: Se creará un objeto de tipo Perro y se añadirá a un array de perros.</li>
+      <li>Botón de Ordenar por inserción: Se mostrarán todos los perros con sus datos en una lista no ordenada (&lt;ul&gt;) en el orden en el que se insertaron.</li>
+      <li>Botón de Ordenar por edad: Se mostrarán todos los perros con sus datos en una lista (&lt;ol&gt;) ordenados por edad.</li>
+      <li>Botón de Ordenar por raza: Se mostrarán todos los perros con sus datos en una lista (&lt;ul&gt;) ordenados por la raza alfabéticamente.</li>
+      <li>Tendrás que crear un constructor de objetos de tipo Perro que devuelva un objeto de tipo Perro que incluya también un método llamado <code>mostrarDatos()</code> que muestre los datos del perro.</li>
+    </ul>
+
+
+<p><strong>Nota:</strong> la función de array <code>toSorted()</code> puede ser necesaria para no perder el orden original.</p>
+<p><strong>Nota:</strong> para comparar dos cadenas se puede usar <code>string1.localeCompare(string2, "es");</code></p>
+
+  <h2>Solución</h2>
+  <form>
+    <label>Nombre:<br>
+      <input type="text" id="txtNombre">
+    </label>
+    <label>Edad:<br>
+      <input type="number" id="txtEdad">
+    </label>
+    <label>Raza:<br>
+      <input type="text" id="txtRaza">
+    </label>
+    <button type="button" id="btnAnadir">Añadir</button>
+    <button type="button" id="btnOrdInsercion">Ordenar por inserción</button>
+    <button type="button" id="btnOrdEdad">Ordenar por edad</button>
+    <button type="button" id="btnOrdRaza">Ordenar por raza</button>
+  </form>
+  
+  <div class="notice" id="divLista"></div>
+</body>
+</html>
