@@ -4,6 +4,10 @@ function Conjunto(cjtoInicial = []){
   this.cjto = cjtoInicial;
 }
 
+
+
+
+
 Conjunto.prototype.añadir = function(n){
   if( typeof n != "number")
     throw new Error("Sólo se pueden añadir números");
@@ -14,11 +18,22 @@ Conjunto.prototype.añadir = function(n){
 }
 
 
+
+
+
+
+
 Conjunto.prototype.eliminar = function(n){
   let indice = this.cjto.indexOf(n);
   if(indice!=-1)
     this.cjto.splice(indice,1);
 }
+
+
+
+
+
+
 
 Conjunto.prototype.imprimir = function(){
   console.log(this.cjto.join(","));

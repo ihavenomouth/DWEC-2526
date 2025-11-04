@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="objetos.js" defer></script>
+  <!-- <script src="objetosPrototipos.js" defer></script> -->
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <h1>Ejercicio Canciones y Ficheros</h1>
+
+  <p>Crea una clase Fichero cuyos atributos sean nombreFichero y tamaño y que tenga un método <code>extensión()</code> que devuelva la extensión del fichero y un método <code>getDatos()</code> que devuelva una cadena de caracteres con el nombre del fichero y el tamaño entre paréntesis.</p>
+
+  <p>Crea una clase Canción que herede de fichero cuyos atributoas serán nombreCanción y duración y tendrá un método <code>getDatos()</code> que devolverá en una cadena de caracteres el nombre de la canción, la duración y el tamaño del fichero.</p>
+
+  <p>Crea una web que cuatro textboxes (para el nombre del fichero, el tamaño, el nombre de la canción y la duración respectivamente), un grupo de radio buttons y dos botones: Agregar y Mostrar.</p>
+  <p>Al arrancar se creará un array de ficheros vacío.</p>
+  <p>Los radio buttons tendrán dos opciones: fichero y canción.</p>
+  <p>Cuando se pulse el botón de Agregar se mirará el radio button selecionado. Si la opción elegida es canción, se recuperarán los datos que correspondan de los textboxes, se creará un objeto de tipo Canción y se añadirá al array de ficheros. Si la opción elegida es fichero se creará un objeto de tipo Fichero y se añadirá al array.</p>
+  <p>Cuando se pulse el botón de Mostrar se mostrará el contenido del array en una lista, llamando para cada objeto del array al método <code>getDatos()</code>.</p>
+
+
+  <h2>Solución</h2>
+  <form>
+    <label>Nombre fichero<br>
+      <input type="text" id="txtNombreFichero"></label>
+    <label>Tamaño (MB)<br>
+      <input type="number" id="txtTamano"></label>
+    <label>Nombre canción<br>
+      <input type="text" id="txtNombreCancion"></label>
+    <label>Duración (segundos)<br>
+      <input type="number" id="txtDuracion"></label>
+    
+    <fieldset>
+      <legend>Tipo de fichero</legend>
+      <label><input type="radio" name="tipo" value="fichero" checked> Fichero</label>
+      <label><input type="radio" name="tipo" value="canción"> Canción</label>
+    </fieldset>
+
+    <button type="button" id="btnAgregar">Agregar</button>
+    <button type="button" id="btnMostrar">Mostrar</button>
+  </form>
+
+  <div id="divResultado" class="notice"></div>
+</body>
+</html>

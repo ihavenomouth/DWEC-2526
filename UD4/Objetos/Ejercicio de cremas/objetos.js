@@ -16,6 +16,12 @@ Ingrediente.prototype.toHTMLRow=function(){
 
 
 
+
+
+
+
+
+
 function Crema(nombre, precio, marca){
   this.nombre = nombre;
   this.precio = precio;
@@ -34,7 +40,7 @@ Crema.prototype.removeIngrediente = function(i){
 
 Crema.prototype.toHTMLTable = function(){
   let tabla = `
-<table style="width:80%;margin-inline:auto" >
+<table style="width:80%;margin-inline:auto">
  <caption>Crema ${this.nombre} - Marca ${this.marca}</caption>
  <thead>
   <tr>
