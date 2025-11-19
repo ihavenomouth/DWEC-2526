@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+  <h1>Ejercicio 5a-4 </h1>
+  
+  <p>Queremos que cuando se pulse sobre la tabla de colores (o el primer párrafo) se elimine todo su contenido. Esto funciona correctamente.</p>
+  
+  <p>Pero también queremos que cuando se pulse sobre uno de los colores se muestre el nombre del color elegido, sin que se borre la tabla. ¿Por qué no funciona bien? ¿Podrías arreglarlo? </p>
+
+
+<div id="tablaColores" style="padding:1rem;background-color:#346;display:grid;gap:1rem;grid-template-columns: 1fr 1fr 1fr;">
+  <p>Pulsa aquí para borrar la tabla de colores.</p>
+  <div style="background-color:#e00; min-height: 6rem;">Rojo</div>
+  <div style="background-color:#2b2; min-height: 6rem;">Verde</div>
+  <div style="background-color:#00f; min-height: 6rem;">Azul</div>
+  <div style="background-color:#eb3; min-height: 6rem;">Amarillo</div>
+  <div style="background-color:#f19; min-height: 6rem;">Rosa</div>
+  <div style="background-color:#73a; min-height: 6rem;">Morado</div>
+  <div style="background-color:#3bd; min-height: 6rem;">Turquesa</div>
+</div>
+
+<div id="divColorElegido"></>
+
+
+<script>
+  const divColorElegido = document.querySelector("#divColorElegido");
+		
+  const tablaColores = document.querySelector("#tablaColores")
+  tablaColores.addEventListener("click", e=>{
+
+    if(e.target.id == "tablaColores" || e.target.tagName == "P"){
+      tablaColores.innerHTML = "";
+      divColorElegido.innerHTML += "<p>Tabla de colores borrada</p>";
+    }
+  });
+
+  const arrDivColores = document.querySelectorAll("#tablaColores > div");
+  arrDivColores.forEach( d=>d.addEventListener("click", e=>{
+    divColorElegido.innerHTML += "</p>Color elegido: " + d.textContent + "</p>";
+    // e.stopPropagation();
+  }));
+</script>
+
+</body>
+</html>

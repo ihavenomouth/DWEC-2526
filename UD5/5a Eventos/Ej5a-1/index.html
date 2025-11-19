@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Input</h1>
+<label for="txtDato">Escribe un dato:</label>
+<input type="text" id="txtDato">
+
+<p>El evento <code>input</code> se activa cada vez que cambia el contenido del cuadro de texto.</p>
+<div id="divDatoEscrito" style="filter:opacity(0.5);padding:0.25rem;"></div>	
+
+<p>El evento <code>change</code> se activa al cambiar el contenido del cuadro de texto y perder el foco (cuando deja de estar seleccionado). Escribe algo debajo y pulsa <kbd>Tab</kbd> o haz click en alguna parte de la web.</p>
+<div id="divDatoEscrito2" style="filter:opacity(0.5);padding:0.25rem;"></div>
+
+
+
+<script>
+	const txtDato = document.querySelector("#txtDato");
+	
+	txtDato.addEventListener("input", e=>{
+		const divDatoEscrito = document.querySelector("#divDatoEscrito");
+		divDatoEscrito.textContent = "Le quedan " + (30 - Number(txtDato.value.length));
+	});
+
+
+
+	txtDato.addEventListener("change", e=>{
+		const divDatoEscrito2 = document.querySelector("#divDatoEscrito2");
+		divDatoEscrito2.textContent = txtDato.value;
+	});
+</script>
+  
+</body>
+</html>

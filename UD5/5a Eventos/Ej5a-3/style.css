@@ -1,0 +1,24 @@
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+
+.menu{
+  border: 1px solid black;
+  background-color: #234;
+  color: white;
+  padding:2rem;
+  max-width: 20rem;
+}
+
+.oculto{
+  display:none;
+}
+
+.i{
+  font-style: italic;
+}
+
+.b{
+  font-weight: 900;
+}

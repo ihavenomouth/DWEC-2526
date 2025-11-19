@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+  <h1>Eventos delegado</h1>
+  <form>
+  <label>Nuevo elemento: <input type="text" id="txtNuevoElemento"></label>
+  <button type="button" id="btnAnadir">Añadir</button>
+</form>
+
+<div><ul id="lista" style="background-color: gray;">
+  <li>Loro</li>
+  <li>Gato</li>
+  <li>Perro</li>
+  <li>Zorro</li>
+</ul></div>
+
+<script>
+document.querySelector("#btnAnadir").addEventListener('click', ()=>{
+  const texto = document.querySelector("#txtNuevoElemento").value;  
+  document.querySelector("#lista").innerHTML += `<li>${texto}</li>`;
+});
+
+// document.querySelectorAll("li").forEach(
+//   li=>li.addEventListener("click", 
+//     e=>{
+//       alert(e.target.innerHTML)
+//     }
+//   )
+// );
+
+document.querySelector("#lista").addEventListener("click", e=>{
+  // alert(e.target.innerHTML);
+  if(e.target.tagName == "LI")
+    e.target.style.display = "none";
+});
+
+</script>
+</body>
+</html>
