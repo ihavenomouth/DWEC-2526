@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Smooch+Sans:100,200,300,regular,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Mona+Sans:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Mona Sans',Arial, Helvetica, sans-serif;
+  background-color: crimson;
+  color: white;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+h1{
+  font-family: 'Smooch Sans',Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  
+  span{
+    color: yellow;
+  }
+}
+
+h2{
+  font-family: 'Smooch Sans',Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  
+  span{
+    color: yellow;
+  }
+}
+
+
+div[draggable]{
+  background-color: yellow;
+  color: black;
+  font-weight: 600;
+  width: 7rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  cursor: grabbing;
+}
+
+code{
+  color: yellow;
+  font-size: 0.85rem;
+}
+
+pre{
+  font-size: 0.85rem;
+  background-color: #333;
+  color: yellow;
+  padding: 0.5rem;
+  border-radius: 10px 0px 10px 0px;
+  span{
+    color:lightgray;
+    font-style: italic;
+  }
+}
+
+
+.dock{
+  border-radius: 10px 0px 10px 0px;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #333;
+}
+
+.dropzone{
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px dashed white;
+}
+

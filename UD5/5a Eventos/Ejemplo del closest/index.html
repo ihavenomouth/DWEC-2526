@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo del closest</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <header>
+    Ejemplo de uso del closest(). <button id="btnNuevaSeccion">Añadir sección</button>
+  </header>
+  <main>
+    <h1>Ejemplo de uso del closest</h1>
+    <section>
+      <h2>Sección 1</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates eveniet culpa ab illo, ad alias reiciendis veritatis voluptatem perferendis? Vero praesentium consectetur odit ipsum itaque molestias consequatur corporis facere voluptatem!</p>
+      <p>Quidem mollitia officia doloribus magnam odit dolor debitis dolorum, aperiam, omnis cupiditate, hic excepturi autem fuga aut itaque illum blanditiis aliquam nesciunt eaque similique. Neque minus nisi non in fugit.</p>
+      <button class="borrar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg> Borrar sección</button>
+    </section>
+    <section>
+      <h2>Sección 2</h2>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, ducimus aspernatur ad harum fugiat velit! Ipsum ullam illo in aspernatur magnam maxime molestias, repudiandae aperiam placeat eos voluptate esse veritatis.</p>
+      <p>Laudantium, architecto incidunt? Id laudantium sit error, voluptas veritatis accusantium rem, tempora officiis, nostrum voluptatibus molestias quos? Quia earum, vitae illo omnis minus voluptatum reprehenderit harum iusto neque sapiente expedita!</p>
+      <button class="borrar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg> Borrar sección</button>
+    </section>
+    <section>
+      <h2>Sección 3</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia pariatur reiciendis recusandae! Asperiores hic minus voluptatibus possimus quisquam placeat facere iusto, fuga, quos mollitia vitae odio architecto voluptas? Corporis, dolorem.</p>
+      <button id="btnMolesto">Botón molesto</button>
+      <p>Nulla quaerat amet quasi facilis optio, repellendus, maiores at, eum in dolor vel quo? Ipsum magnam quaerat laborum unde in maiores deleniti, laboriosam, pariatur autem amet ad dignissimos maxime illum.</p>
+      <button class="borrar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg> Borrar sección</button>
+    </section>
+    <section>
+      <h2>Sección 4</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta labore, blanditiis quisquam facilis quibusdam veniam, distinctio aliquam quos repellat illum praesentium. Necessitatibus eaque autem recusandae ad quae alias possimus quisquam?</p>
+      <p>Itaque atque culpa explicabo fugiat placeat eum exercitationem officia in quasi magnam praesentium labore aperiam et rerum veniam velit nostrum, reprehenderit, eos, consequatur laudantium rem ad hic. Et, hic iusto.</p>
+      <button class="borrar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg> Borrar sección</button>
+    </section>
+    <section>
+      <h2>Sección 5</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vel deserunt iure illo porro assumenda enim incidunt rerum necessitatibus aliquid cupiditate, officiis repellendus? Quibusdam nulla accusantium voluptatum reprehenderit quisquam facilis?</p>
+      <p>Harum quidem expedita amet, suscipit eius ea iure recusandae quos eum rem nostrum in illum accusantium animi ipsam soluta dolores sit id laboriosam. Maiores nesciunt nemo qui, hic labore nam.</p>
+      <button class="borrar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg> Borrar sección</button>
+    </section>
+  </main>
+
+</body>
+</html>

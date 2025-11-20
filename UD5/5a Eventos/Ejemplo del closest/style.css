@@ -1,0 +1,89 @@
+
+@import url(https://fonts.googleapis.com/css?family=Orbitron:regular);
+@import url(https://fonts.googleapis.com/css?family=Funnel+Display:regular);
+
+
+*, ::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  font-family:  'Funnel Display', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #678;
+  margin:0;
+}
+
+h1, h2{
+  font-family:  'Orbitron', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 100;
+}
+h1{
+  font-size: 5rem;
+}
+h2{
+  font-size: 3rem;
+  text-align: center;
+}
+
+main{
+  max-width: 75rem;
+  padding:1rem;
+  margin-inline: auto;
+  display:grid;
+    --min-col-size: 360px; /*65ch*/
+    display: grid;
+    gap: 1rem;
+    grid-template-columns:
+     repeat(auto-fill, minmax( min(var(--min-col-size), 100%), 1fr))
+}
+
+header{
+  color: white;
+  position: fixed;
+  background-color: #224a;
+  padding-inline: 2rem;
+  top:0;
+  width: 100%;
+  padding: 1rem 5rem;
+  backdrop-filter: blur(7px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+section{
+  background-color: #4564;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+button.borrar{
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+button{
+  background-color: #456;
+  width: fit-content;
+  border:0;
+  color: #cdf;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-variant: small-caps;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap:1rem;
+  &:hover{
+    filter:brightness(1.1);
+    cursor: pointer;
+  }
+  &:active{
+    transform: translateY(2px);
+  }
+}
+

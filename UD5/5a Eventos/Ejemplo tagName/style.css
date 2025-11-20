@@ -1,0 +1,45 @@
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  margin:0 auto;
+  padding:1rem;
+  max-width: 60rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.imagenes{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 3rem;
+  background-color: #69a;
+  padding: 3rem;
+}
+
+.imagenes img{
+  padding: 3rem;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+
+.titulo{
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: #eef;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  border-radius: 15px;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+.grande{
+  scale: 2;
+}

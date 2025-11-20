@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="code.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Ejemplo de <span>drag & drop</span></h1>
+  <p>Para crear un elemento que sea <em>arrastrable</em>, empezaremos añadiendo el atributo <code>draggable=true</code> a una división (o al elemento que queramos arrastrar). Por ejemplo:</p>
+
+<pre>
+&lt;div draggable="true"&gt;Arrástrame&lt;/div&gt;
+</pre>
+
+  <p>Con algo de CSS tendremos el resultado de abajo.</p>
+
+  <div class="dock">
+    <div draggable="true">Arrástrame 1</div>
+    <div draggable="true">Arrástrame 2</div>
+    <div draggable="true">Arrástrame 3</div>
+  </div>
+
+  <p>Ahora necesitamos una zona donde poder soltar los elementos arrastrados, para ello vamos a crear una nueva división con <code>id=dropzone</code>. Con CSS se ha hecho que el borde sea punteado. Esta es la manera en la que se suele represnetar que es una zona donde se pueden soltar elementos.</p>
+
+  <div id="dropzone" class="dropzone"></div>
+
+  <p>Puedes probar el funcionamiento arrastrando una de las divisiones a la zona de descarga.</p>
+  <h2>El código <span>Javascript</span></h2>
+  <p>Ahora vayamos al código Javascript. Lo primero será añadir a cada elemento <code>draggable</code> un <code>eventListener</code> para escuchar el evento <code>dragstart</code>.</p>
+
+  <p>El evento <code>dragstart</code> se produce cuando se hace click sobre un elemento y sin dejar de pulsar el botón del ratón éste se arrastra.</p>
+<pre>
+  "use strict";
+
+  let elementoArrastrado = null;
+  
+  document.querySelectorAll("[draggable]").forEach( elemento =>{
+    elemento.addEventListener("dragstart", e=>{
+      elementoArrastrado = elemento;
+    });
+  });  
+</pre>
+
+  <p>El código de arriba además incluye una variable <code>elementoArrastrado</code> que hace referencia al elemento que se está arrastrando. De este modo podremos usarla cuando se suelte el elemento.</p>
+
+  <p>Ahora vamos con el <code>dropzone</code>. Lo primero será evitar el comportamiento por defecto de los elementos al ser arrastrados y soltados, que es regresar a su posición original (puedes hacer la prueba seleccionando un poco de texto y arrastrádolo para verlo).</p>
+
+  <p>Cuando se suelta sobre la división con <code>id=dropzone</code> lo que haremos será simplemente añadir como hijo el elemento arrastrado (que se encontraba referenciado en la variable <code>elementoArrastrado</code>).</p>
+
+<pre>
+  const dropzone = document.querySelector("#dropzone");
+
+  <span>// Impedimos el comportamiento por defecto de los elementos</span> 
+  <span>// arrastrados (que es volver a su posición)</span>
+  dropzone.addEventListener("dragover", e=>{
+    e.preventDefault();
+  });
+  
+  dropzone.addEventListener("drop", e=>{
+    dropzone.append(elementoArrastrado);
+  });
+</pre>
+
+
+  <h2>Evitar el <span>ghosting</span></h2>
+  <p>Al arrastrar uno de los elementos, podemos ver cómo se queda en la posición inicial mientras que arrastramos un <em>fantasma translúcido</em> del elemento.</p>
+
+  <p>Si esto no es lo que queremos podemos modificar ligeramente nuestro código para usar las opciones de <code>visibility:hidden</code>.</p>
+
+<pre>
+  "use strict";
+
+  let elementoArrastrado = null;
+  
+  document.querySelectorAll("[draggable]").forEach( elemento =>{
+    elemento.addEventListener("dragstart", e=>{
+      setTimeout(()=>{
+         div.style.visibility="hidden";
+        elementoArrastrado = elemento;
+      },0);
+    });
+  });
+  
+  
+  const dropzone = document.querySelector("#dropzone");
+  
+  <span>// Impedimos el comportamiento por defecto de los elementos</span>
+  <span>// arrastrados (que es volver a su posición)</span>
+  dropzone.addEventListener("dragover", e=>{
+    e.preventDefault();
+  });
+  
+  dropzone.addEventListener("drop", e=>{
+    elementoArrastrado.style.visibility="visible";
+    dropzone.append(elementoArrastrado);
+  });
+</pre>
+
+<p>Nota: el <code>setTimeout</code> es necesario para que no se elimine el elemento antes de que se cree el <em>fantasma translúcido</em> que arrastramos.
+</p>
+
+  <h2>Ejercicios de drag & drop</h2>
+  <p>Crea una web que contenga todos los escudos de los equipos de la LEC del League of Legends que se puedan arrastrar a una zona de manera que se pueda crear un <em>power ranking</em> de los cuatro mejores equipos.</p>
+  <p>Evidentemente es posible que nos equivoquemos al arrastrar y añadamos un equipo por error, de modo que haz que se pueda volver a colocar los escudos en su localización original.</p>
+
+  <p>Ampliación: Añade a las imágenes de los escudos un atributo <code>data-equipo</code> con el nombre del equipo, de manera que cuando se suelte en la <code>dropzone</code> se muestre en una lista ordenada los nombres de los equipos.</p>
+</body>
+</html>
