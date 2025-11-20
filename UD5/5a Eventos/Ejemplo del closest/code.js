@@ -19,21 +19,24 @@ document.querySelector("#btnNuevaSeccion").addEventListener("click", e=>{
   `;
 });
 
+
+
+
 //////////////////////////////////
 // Uso del closest
 //////////////////////////////////
 
 // // ¡Cuidado con el selector! Hay un botón en una sección que no queremos
 // // que pueda borrarla
-// // const botonesDeBorrar = document.querySelectorAll("button");
+// const botonesDeBorrar = document.querySelectorAll("button");
 // const botonesDeBorrar = document.querySelectorAll("button.borrar");
 
 // //Si hacemos click en el icono, se eliminará el icono
 // for(let botón of botonesDeBorrar){
 //   botón.addEventListener("click", (e)=>{
-//     e.target.style.display="none";
-//     // e.target.closest("section")
-//     //   .style.display = "none";
+//     // e.target.style.display="none";
+//     e.target.closest("section")
+//       .style.display = "none";
 //   });
 // }
 

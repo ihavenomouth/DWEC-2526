@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+
+  <h1>Ejercicio 5a-10</h1>
+  <p>Crea una web que contenga dos divisiones. En la primera división crea una lista de alimentos (patatas, huevos, leche, uvas pasas...). La segunda división estará vacía.</p>
+  <p>Haz que cuando se pulse sobre un elemento de la primera lista se añada en la segunda división un párrafo que contenga el texto del elemento. </p>
+
+  <div style="display:flex;gap:2rem" class="notice">
+    <div style="flex:1;padding:0.5rem;border:1px solid gray;">
+      <ul id="alimentos" style="cursor: pointer; border:1px solid red;">
+        <li style="background-color: gray;">patatas</li>
+        <li>huevos</li>
+        <li>leche</li>
+        <li>uvas</li>
+        <li>pasas</li>
+      </ul>
+    </div>
+    
+    <div id="compras" style="flex:1;padding:0.5rem;border:1px solid gray;">
+    </div>
+    
+  </div>
+</body>
+</html>
