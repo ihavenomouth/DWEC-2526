@@ -1,0 +1,254 @@
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 2rem;
+}
+
+/* Estilo del botón principal */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    /* font-size: 16px; */
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-primary:hover { background-color: #0056b3; }
+
+code{
+  background-color: #cdf;
+}
+
+/* --- Estilos del DIALOG --- */
+dialog {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 2rem;
+    width: 400px;
+    max-width: 90%;
+}
+
+/* El fondo oscuro detrás del diálogo */
+dialog::backdrop {
+    background-color: rgba(0, 0, 32, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+/* Estilos del formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Footer del formulario (Botones) */
+.dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+
+
+/*
+*
+*
+* 
+ANIMACION AL ABRIR EL DIALOG con popover
+*
+*
+*
+*/
+
+/* 1. Estado Base (Cerrado/Saliendo) */
+[popover] {
+    /* Estética del contenedor */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    padding: 2rem;
+    width: 400px;
+    max-width: 90%;
+    margin: auto; /* Centrado automático */
+
+    /* Estado inicial para la animación */
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+
+    /* Transición de SALIDA */
+    /* 'allow-discrete' es obligatorio para animar display:none */
+    transition: 
+        opacity 0.3s ease-in,
+        transform 0.3s ease-in,
+        display 0.3s allow-discrete, 
+        overlay 0.3s allow-discrete;
+}
+
+/* 2. Estado Abierto (:popover-open) */
+[popover]:popover-open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    
+    /* Transición de ENTRADA (con rebote suave) */
+    transition: 
+        opacity 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+        transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+        display 0.4s allow-discrete, 
+        overlay 0.4s allow-discrete;
+}
+
+/* 3. Regla de Inicio (@starting-style) */
+/* Define desde dónde arranca la animación al abrirse */
+@starting-style {
+    [popover]:popover-open {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+/* --- ANIMACIÓN DEL FONDO (BACKDROP) --- */
+[popover]::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    transition: 
+        display 0.3s allow-discrete, 
+        overlay 0.3s allow-discrete, 
+        background-color 0.3s,
+        backdrop-filter 0.3s;
+}
+
+[popover]:popover-open::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+@starting-style {
+    [popover]:popover-open::backdrop {
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+    }
+}
+
+
+
+
+
+
+/*
+*
+*
+* ANIMACION DEL DIALOG gestionado con JS
+*
+*/
+dialog {
+    /* Estilos visuales de la caja */
+    border: none;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    /* margin: auto; Centrado nativo */
+    /* Estado INVISIBLE (para la animación de salida) */
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+
+    /* TRANSICIÓN DE SALIDA */
+    /* 'allow-discrete' es vital para animar display:none y overlay */
+    transition: 
+        opacity 0.3s ease-in,
+        transform 0.3s ease-in,
+        display 0.3s allow-discrete,
+        overlay 0.3s allow-discrete;
+}
+
+/* 2. Estado Abierto (Cuando JS pone el atributo 'open') */
+dialog[open] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+
+    /* TRANSICIÓN DE ENTRADA */
+    transition: 
+        opacity 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+        transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+        display 0.4s allow-discrete,
+        overlay 0.4s allow-discrete;
+}
+
+/* 3. Regla de Inicio (@starting-style) */
+/* Define cómo empieza el frame 0 cuando se añade el atributo 'open' */
+@starting-style {
+    dialog[open] {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+/* --- ANIMACIÓN DEL BACKDROP (Fondo oscuro) --- */
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    
+    transition: 
+        display 0.3s allow-discrete,
+        overlay 0.3s allow-discrete,
+        background-color 0.3s,
+        backdrop-filter 0.3s;
+}
+
+dialog[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+@starting-style {
+    dialog[open]::backdrop {
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+    }
+}

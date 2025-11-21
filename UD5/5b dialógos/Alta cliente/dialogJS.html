@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Gestión de cuadros de diálogo</h1>
+
+  <section>
+
+    <p>Gestionamos el cuadro de diálogo desde Javascript.</p>
+    
+    <p>Al elemento <code>&lt;dialog&gt;</code> se le asigna el atributo <code>popover</code>. Por otro lado se hace que un <code>&lt;button&gt;</code> (u otro elemento) se le asigna el atributo <code>popovertarget="id-del-cuadro-de-diálogo"</code>.</p>
+    <p>Dentro del cuadro de diálogo, se añade un <code>&lt;button&gt;</code> que tenga los atributos <code>popovertarget="id-del-cuadro-de-diálogo"</code> y el <code>popovertargetaction="hide"</code></p>
+    
+    <p>Pulsa aquí para <a href="index.html">volver a la página principal</a>.</p>
+  </section>
+
+  <form>
+    <button id="abrirModal" class="btn-primary" type="button">Abrir cuadro de diálogo</button>
+  </form>
+    
+  <dialog id="dialogo">
+    <p>Ejemplo de cuadro de diálogo gestionado desde JS.</p>
+    <button id="btnDialogoAccion" class="btn-primary" type="button">Acción</button>
+    <button id="btnDialogoCerrar" class="btn btn-secondary" type="button">Cerrar</button>
+  </dialog>
+
+  <script>
+    document.querySelector("#abrirModal").addEventListener("click", e=>{
+      document.querySelector("#dialogo").showModal();
+    });
+
+    document.querySelector("#btnDialogoCerrar").addEventListener("click", e=>{
+      e.target.closest("dialog").close();
+    });
+
+    document.querySelector("#btnDialogoAccion").addEventListener("click", e=>{
+      alert("Se ejecutará algo de código y luego se cerrará el cuadro de diálogo");
+      e.target.closest("dialog").close();
+    });
+
+  </script>
+
+</body>
+</html>
