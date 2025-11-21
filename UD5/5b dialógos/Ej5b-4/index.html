@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+   <h1>Ejercicio 4</h1>
+   <p>Crea una web que contenga un select con cuatro sabores de helado (vainilla, fresa, chocolate, nata) y un grupo de radio button con la nota de ese sabor (del 1 al 5 siendo 5 la mejor puntuación). Al pulsar en un botón con la etiqueta Votar, se almacenará en un array un objeto que contendrá dos valores: el sabor elegido y la puntuación elegida. Al pulsar otro botón se nos mostrará en un cuadro de diálogo cada sabor con el número de votos, su media y cuántas veces ha obtenido la puntuación máxima. </p>
+
+   <h2>Solución</h2>
+   <form>
+    <select id="sltSabor">
+      <option value="Vainilla">Vainilla</option>
+      <option value="Fresa">Fresa</option>
+      <option value="Chocolate">Chocolate</option>
+    </select>
+
+    <fieldset>
+      <legend>Puntuación</legend>
+      <label>
+        <input type="radio" name="radio" value="1" checked>1
+      </label>
+      
+      <label>
+        <input type="radio" name="radio" value="2">2
+      </label>
+      
+      <label>
+        <input type="radio" name="radio" value="3">3
+      </label>
+      
+      <label>
+        <input type="radio" name="radio" value="4">4
+      </label>
+      
+      <label>
+        <input type="radio" name="radio" value="5">5
+      </label>
+    </fieldset>
+   
+    <input type="button" id="btnVotar" value="Votar">
+    <input type="button" id="btnResultados" value="Ver resultados">
+  </form>
+
+  <dialog id="dialogoResultado"></dialog>
+</body>
+</html>

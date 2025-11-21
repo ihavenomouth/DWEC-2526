@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+   <h1>Ejercicio 5b-2</h1>
+   <p>Crea una web que contenga un botón, una división y tres checkbox (mañana, tarde, noche) y al pulsar el botón se procederá así:</p>
+    <ul>
+      <li>comprobará que al menos una de las opciones está marcada y como máximo estarán marcadas dos.</li>
+      <li>si todo es correcto mostrará en la división las opciones seleccionadas</li>
+      <li>si no hay seleccionada ninguna opción o están marcadas todas, se mostrará un mensaje de error en la división</li>
+    </ul>
+
+    <h2>Solución</h2>
+    <p>Debe seleccionar una o dos opciones.</p>
+    <form>
+      <label>  
+        <input type="checkbox" value="Mañana"> Mañana
+      </label>
+      <label>  
+        <input type="checkbox" value="Tarde"> Tarde
+      </label>
+      <label>  
+        <input type="checkbox" value="Noche"> Noche
+      </label>
+      <button type="button" id="btnAceptar">Aceptar selección</button>
+    </form>
+
+    <div class="notice" id="divResultado"></div>
+
+</body>
+</html>

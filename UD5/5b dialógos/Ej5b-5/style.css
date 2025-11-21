@@ -1,0 +1,12 @@
+
+.negrita{
+  font-weight: 900;
+}
+
+.cursiva{
+  font-style:italic;
+}
+
+.subrayado{
+  text-decoration: underline;
+}
