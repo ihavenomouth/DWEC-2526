@@ -9,8 +9,8 @@ let fontSize = 1;
 
 divEditable.addEventListener("keydown",e=>{
   // console.log(e);
-
-
+  
+  
   if(e.key == "b" && e.ctrlKey){
     e.preventDefault();
     e.target.classList.toggle("negrita");
