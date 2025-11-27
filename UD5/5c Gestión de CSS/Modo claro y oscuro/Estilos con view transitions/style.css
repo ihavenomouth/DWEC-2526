@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+::view-transition-old(root){
+	animation-delay: 100ms;
+}
+
+::view-transition-new(root){
+	animation: move-in 1000ms ease-in;
+	/* animation: circle-in 500ms; */
+}
+
+@keyframes  move-in {
+	from{ translate: 0 -100%;}
+	to{ translate: 0 0;}
+}
+
+@keyframes circle-in {
+  from { clip-path: circle(0% at 50% 0%); }
+  to { clip-path: circle(120% at 50% 0%); }
+}
+
+
+
+
+@media (prefers-color-scheme: light){
+	:root {
+	--accent-color: hsl(151, 70%, 47%);
+	--background-color: radial-gradient(90deg, #00fff8 0%, #3ad59f 100%) ;
+	--text-color: #123;
+	}
+}
+
+@media (prefers-color-scheme: dark){
+	:root {
+	--accent-color: hsl(151, 70%, 57%);
+	--background-color: #345;
+	--text-color: #c0e0d0;
+	}
+}
+
+
+:root.claro {
+	--accent-color: hsl(151, 70%, 47%);
+	--background-color: radial-gradient(90deg, #00fff8 0%, #3ad59f 100%) ;
+	--text-color: #123;
+}
+:root.oscuro{
+	--accent-color: hsl(151, 70%, 57%);
+	--background-color: #345;
+	--text-color: #c0e0d0;
+}
+
+
+
+body{
+	background: var(--background-color);
+	color: var(--text-color);
+
+	font-family: roboto, arial, sans-serif;
+	margin: 0 auto;
+	padding: 1rem;
+	max-width: 50rem;
+	min-height: 100vh;
+}
+
+main{
+	background-color: color-mix(in srgb, var(--accent-color) 20%, transparent 80%);
+	margin-block: 1rem;
+	padding: 1rem;
+	/* background-color: white; */
+}
+
+input, select{
+	border: 2px solid black;
+	margin: 0.5rem;
+	padding: 0.25rem;
+	min-width: 10rem;
+	background-color: var(--accent-color);
+}
+
+nav.colorPicker{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+fieldset{
+	border: 2px solid var(--accent-color);
+	margin: 0 center;
+	width: fit-content;
+}
+
+h1{
+	font-size: 3rem;
+	font-weight: 900;
+	color: var(--accent-color);
+	text-align: center;
+	text-wrap: balance;
+}

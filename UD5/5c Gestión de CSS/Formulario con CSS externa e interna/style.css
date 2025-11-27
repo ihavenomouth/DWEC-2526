@@ -1,0 +1,30 @@
+
+
+
+input:invalid{
+  outline: 2px solid red;
+  border:0;
+}
+
+.errores{
+  margin-top: 1rem;
+  background-color: #735;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.errores:empty{
+  display: none;
+}
+
+#resultado{
+  padding:1rem;
+}
+
+.resaltar1{
+  background-color: #330066;
+}
+
+.resaltar2{
+  outline: 3px solid #663399;
+}
