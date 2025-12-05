@@ -1,0 +1,58 @@
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: linear-gradient(180deg, darksalmon, #ffa755);
+}
+
+h1{
+  border-bottom: 3px solid rebeccapurple;
+  font-weight: 900;
+  font-size: 3rem;
+  background: linear-gradient(blue, purple);
+  background-clip: text;
+  color:transparent;
+}
+h2{
+  font-weight: 100;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+ul.listaAlumnos{
+  list-style: '👉🏼 ';
+  background-color: beige;
+  padding: 0.5rem 0rem 0.5rem 2rem;
+  border-radius: 5px;
+}
+ul.listaAlumnos > li{
+  color:#456;
+  &:hover{
+    filter:brightness(0.9);
+    cursor: pointer;
+  }
+}
+
+#listaAprobados{
+  list-style: '👍🏼 ';
+}
+#listaSuspensos{
+  list-style: '👎🏼 ';
+}
+
+
+div.listas{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+fieldset{
+  border: 1px solid black;
+  width: max(200px, calc(100% - 5rem));
+}

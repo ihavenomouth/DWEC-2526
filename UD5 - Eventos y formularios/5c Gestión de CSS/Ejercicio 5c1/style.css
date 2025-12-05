@@ -1,0 +1,23 @@
+:root{
+  --accent: red;
+}
+
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #eee;
+  color: #444;
+}
+
+button{
+  padding: .5rem;
+  margin-bottom: .5rem;
+  border-radius: 5px;
+  max-width: 100%;
+  color: white;
+  background-color: var(--accent);
+  border: 1px solid black;
+}
+

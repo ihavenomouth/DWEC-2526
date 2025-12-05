@@ -1,0 +1,18 @@
+*,::after,::before{
+	box-sizing: border-box;
+}
+
+.autogrid {
+  --min-col-size: 100px;
+  display: grid;
+  gap: 1rem;
+  /*auto-fill es mejor que autofit si el nº de elementos va a cambiar (añadir, filtrar, ...)*/
+  grid-template-columns:
+   repeat(auto-fill, minmax( min(var(--min-col-size), 100%), 1fr));
+}
+
+.autogrid div{
+  min-height: 6rem;
+  display: grid;
+  place-content: center;
+}

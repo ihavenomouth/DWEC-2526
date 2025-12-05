@@ -5,8 +5,8 @@
 }
 
 ::view-transition-new(root){
-	animation: move-in 1000ms ease-in;
-	/* animation: circle-in 500ms; */
+	/* animation: move-in 1000ms ease-in; */
+	animation: circle-in 500ms;
 }
 
 @keyframes  move-in {

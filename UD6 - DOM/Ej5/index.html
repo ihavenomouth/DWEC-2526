@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+</head>
+<body>
+  <h1>Ejercicio 5</h1>
+  <p>Crea una tabla HTML con los datos de la lista original. Esta lista tendrá dos columnas: nombre y apellido.</p>
+  <p>Añade un botón que al ser pulsado ordene la tabla por el nombre.</p>
+
+  <p>Añade un cuadro de búsqueda y un botón. Al pulsar el botón se mostrará un listado de los alumnos cuyo nombre comience con el contenido del cuadro de búsqueda.</p>
+
+
+  <label>Buscar por nombre:
+    <input type="text" id="txtNombre">
+  </label>
+
+  <table id="tabla">
+   <caption>Tabla de alumnos</caption>
+   <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr><td>Tomás</td><td>Tuerzo</td></tr>
+      <tr><td>Aitor</td><td>Tilla</td></tr>
+      <tr><td>Sara</td><td>Mago</td></tr>
+      <tr><td>Pancho</td><td>Colate</td></tr>
+      <tr><td>Ana</td><td>Tema</td></tr>
+      <tr><td>Armando</td><td>Bronca</td></tr>
+      <tr><td>Aitor</td><td>Menta</td></tr>
+    </tbody>
+  </table>
+
+
+  <p>Posible solución (sería mejor usar un <code>localeCompare</code>):</p>
+<pre>let tbody = document.querySelector("table tbody");
+  
+Array.from(tbody.children).toSorted( (f1,f2) => f1.children[0].innerText>f2.children[0].innerText).forEach( fila => {
+  tbody.appendChild(fila);
+});
+</pre>
+
+  
+</body>
+</html>
