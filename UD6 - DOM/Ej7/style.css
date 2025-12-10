@@ -1,0 +1,42 @@
+*,::after,::before{
+  box-sizing: border-box;
+}
+
+nav{
+  position:fixed;
+  background-color: purple;
+  left:0;
+  right: 0;
+}
+
+menu{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap:1rem;
+  & li{
+    cursor: pointer;
+  }
+}
+
+
+main{
+  padding-top: 5rem;
+}
+
+dialog{
+  min-width: 50%;
+  display: grid;
+  place-content: center;
+  &::backdrop{
+    background-color: #4566;
+  }
+}
+
+td,th{
+  text-align: center;
+}
+
+.tareahecha{
+  text-decoration: line-through;
+}

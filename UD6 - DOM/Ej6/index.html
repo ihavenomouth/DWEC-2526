@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <script src="code.js" defer></script>
+  <title>Document</title>
+</head>
+<body>
+  <h1>Ejercicio 6: </h1>
+  <p>Partiendo de la lista de alumnos de abajo crea una tabla con dos columnas usando únicamente métodos de manipulación del DOM.</p>
+  <p>La tabla se creará al pulsar un botón de crear tabla.</p>
+
+
+<p>Añade un formulario con dos cuadros de texto (nombre y apellido) y un botón que permita añadir un elemento a la lista y a la tabla simultáneamente como último elemento.</p>
+
+<p>Añade un checkbox para indicar si se quiere añadir el nuevo alumno al final de la lista/tabla.</p>
+
+<p>Añade un manejador de evento delegado en la lista que permita que al hacer click sobre un elemento se coloque el primero.</p>
+
+<p>Añade un manejador de evento delegado en la tabla que permita que al hacer click sobre una fila de la tabla que contenga datos (no la cabecera)  cree un clon y lo añada al final de la misma.</p>
+
+<p>Parte de esta lista de alumnos:</p>
+<ul class="listaAlumnos">
+  <li>Tomás Tuerzo</li>
+  <li>Aitor Tilla</li>
+  <li>Sara Mago</li>
+  <li>Pancho Colate</li>
+  <li>Ana Tema</li>
+</ul>
+
+<form action="">
+  <label>Nombre 
+    <input type="text" id="txtNombre">
+  </label>
+
+  <label>Apellido 
+    <input type="text" id="txtApellido">
+  </label>
+
+  <label>
+    <input type="checkbox" id="chkFinal" checked> Añadir al final
+  </label>
+
+  <button id="btnCrearTabla" type="button">Crear tabla</button>
+  <button id="btnAddAlumno" type="button">Añadir alumno</button>
+</form>
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+</body>
+</html>
