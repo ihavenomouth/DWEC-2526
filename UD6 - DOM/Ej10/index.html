@@ -6,6 +6,27 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
   <script src="code.js" defer></script>
+  <style>
+    #listado p{
+      background-color: var(--accent-bg);
+      padding: 5px 10px;
+      border-radius: 7px;
+      cursor: s-resize;
+    }
+    #listado.arriba p{
+      cursor: n-resize;
+    }
+
+    #listado{
+      background-color: var(--disabled);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-block: 1rem;
+      &:empty{
+        display:none;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -22,6 +43,7 @@
       <input type="checkbox" id="chkArriba"> Arriba
     </label>
   </form>
+  <h2>Power ranking</h2>
   <div id="listado"></div>
 
 </body>
