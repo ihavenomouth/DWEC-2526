@@ -6,28 +6,35 @@ const crearDialog = (mensaje, tipo)=>{
   const dialog = document.createElement("dialog");
   
   const h2 = document.createElement("h2");
-  if(tipo === DIALOGO_ERROR) 
+  if(tipo === DIALOGO_ERROR){
     h2.textContent = "Error";
+    h2.style.color="#881111"
+  }
   else
     h2.textContent = "Resultado";
+
+  const p = document.createElement("p");
+  p.innerText = mensaje;
 
   const button = document.createElement("button");
   button.textContent = "Cerrar";
   button.addEventListener("click", e=>{
-    dialog.cerrar;
+    dialog.close();
   })
 
-  dialog.append(h2, mensaje, button);
+  dialog.append(h2, p, button);
   document.body.append(dialog);
+  dialog.showModal();
 }
 
 
 
 
-const cargarUsuarios = async () =>{
+const cargarUsuarios = async (e) =>{
+  if(e.target.tagName != "BODY" && e.target.tagName != "HTML") return;
   try{
 
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const response = await fetch("https://jsonplaceholder.typicode.com/ussers");
     
     if(!response.ok)
       throw new Error("No se pudieron recuperar los usuarios");
