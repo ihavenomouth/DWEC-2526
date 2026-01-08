@@ -1,5 +1,45 @@
 "use strict";
 
+const anadirEventoDelegadoTabla = tabla =>{
+
+  tabla.addEventListener("click", async e=>{
+    if(e.target.tagName != "TR" && e.target.tagName != "TD") return;
+    
+    // Si llego aquí se ha hecho click sobre un TD o un TR
+    let id_usuario;
+    if(e.target.tagName == "TR"){
+      id_usuario = e.target.dataset.id;
+    }
+    else{
+      id_usuario = e.target.closest("tr").dataset.id;
+    }
+
+    //llamamos a la url https://jsonplaceholder.typicode.com/users/5
+    try{
+      const response = await fetch("https://jsonplaceholder.typicode.com/users/"+id_usuario);
+
+      if(!response.ok){
+        throw new Error("No se pudieron recuperar los datos del usuario "+id_usuario);
+      }
+      const jsonUsuario = await response.json(); 
+
+
+      crearDialog(`${jsonUsuario.name}\nCompañía: ${jsonUsuario.company.name}`);
+
+    }
+    catch(error){
+      crearDialog(error, DIALOGO_ERROR);
+    }
+  })
+}
+
+
+
+
+
+
+
+
 
 
 const crearDialog = (mensaje, tipo)=>{
@@ -34,7 +74,7 @@ const cargarUsuarios = async (e) =>{
   if(e.target.tagName != "BODY" && e.target.tagName != "HTML") return;
   try{
 
-    const response = await fetch("https://jsonplaceholder.typicode.com/ussers");
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
     
     if(!response.ok)
       throw new Error("No se pudieron recuperar los usuarios");
@@ -90,6 +130,7 @@ const tratarJSONUsuarios = (json) =>{
     td3.innerText = usuario.website;
     td4.innerText = usuario.address.city;
     tr.append(td1,td2,td3,td4);
+    tr.dataset.id = usuario.id;
     tbody.append(tr);
   }
 
@@ -97,7 +138,7 @@ const tratarJSONUsuarios = (json) =>{
   table.append(tbody);
 
   // Añadimos el evento delegado a la tabla
-  // anadirEventoDelegadoTabla(table);
+  anadirEventoDelegadoTabla(table);
 
   // Añadimos la tabla al documento o la devolvemos
   document.body.append(table);
