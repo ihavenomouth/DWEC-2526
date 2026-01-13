@@ -1,0 +1,21 @@
+### API Gritona - Convertir texto a mayúsculas
+GET http://localhost:3000/api/gritona?texto=hola%20mundo
+
+### Obtener todos los alumnos
+GET http://localhost:3000/api/alumno
+
+### Obtener un alumno por ID (ejemplo: ID 1)
+GET http://localhost:3000/api/alumno/1
+
+
+### Crear un nuevo alumno (Este endpoint falla el 50% de las veces)
+POST http://localhost:3000/api/alumno
+Content-Type: application/json
+
+{
+  "nombre": "Carlos Pérez",
+  "edad": "23",
+  "curso": "25-26",
+  "grupo": "1 DAW",
+  "email": "carlos@example.com"
+}

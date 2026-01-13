@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Alumnos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <script src="js/code.js" defer></script>
+  <style>
+    body {
+      padding: 2rem;
+    }
+    article {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>API REST</h1>
+
+  <h2>Primer ejercicio</h2>
+  <p>Arranca el <em>backend</em> con nodejs ejecutando <code>npm run start</code> en la carpeta del proyecto. Si todo ha ido bien aparecerá un mensaje como el de abajo:</p>
+  <pre>
+ &gt; formypeticiones@1.0.0 start
+ &gt; node server.js
+
+ Servidor escuchando en http://localhost:3000
+</pre>
+
+  <p>Abre en el navegador esa URL: <a href="http://localhost:3000">http://localhost:3000</a>.</p>
+
+  <p><strong>Importante:</strong> Para que funcione tenemos que tener instalado correctamente NodeJs (sigue las instrucciones de esta URL si no lo tienes instalado: <a href="https://nodejs.org/en/download">https://nodejs.org/en/download</a>).</p>
+
+  <h2>Segundo ejercicio</h2>
+  <p>En el <em>backend</em> hay implementada una API tipo REST. Para probarla rápidamente vamos a utilizar una extensión del VSCode llamada <strong>Rest Client</strong> creada por Huachao Mao.<br>
+  Esta extensión utiliza un fichero llamado <code>testapi.http</code>.</p>
+  
+  <p>Abre ese fichero en VSCode y podrás ver varios <em>Endpoints</em> de la API junto con un enlace para probarlo.</p>
+
+  <p>Realiza alguna prueba con este fichero para familiarizarte con él.</p>
+
+  <h2>Tercer ejercicio</h2>
+
+  <p>Haz que cuando se pulse el botón se recupere el texto que se ha escrito en el <code>&lt;input&gt;</code> de abajo y se mande a la API gritona.</p>
+
+  <p>La petición que hay que realizar es de tipo <code>GET</code> a la URL <code>http://localhost:3000/api/gritona</code> usando como parámetro <code>texto=grito</code>.
+  </p>
+  <p>Por ejemplo: <a href="http://localhost:3000/api/gritona?texto=grito">http://localhost:3000/api/gritona?texto=grito</a>.</p>
+
+  <p>Para ello se puede hacer lo siguiente:</p>
+  <ul>
+    <li>Crea un objeto URL con la dirección (<code>const u = new URL()</code>)</li>
+    <li>A ese objeto añade los parámetros de búsqueda (<code>u.searchparams.append("texto","¡grito! &lt;3 ")</code>).Repite este paso con todos los parámetros.</li>
+    <li>Usamos la URL completa generada para hacer la petición (<code>u.href</code>).</li>
+  </ul>
+
+  <p>El servidor responderá con el mismo mensaje, pero en mayúsculas. Haz que se muestre en el elemento &lt;article id="divGritona"&gt; de abajo.</p>
+
+  <p>Fíjate un dejalle, con <a href="https://picocss.com/">Pico CSS</a> podemos hacer que se muestre un <em>spinner</em> simplemente añadiendo el atributo <code>aria-busy="true"</code>. Modifica tu petición de manera que antes de hacerla se muestre el <em>spinner</em> y al terminar se oculte.</p>
+
+  <form style="max-width: 50%;">
+    <fieldset role="group">
+      <legend>Prueba de la API gritona</legend>
+        <input type="text" name="txtGritar" id="txtGritar" placeholder="¡hola caracolaaaaaa!">
+      <button id="btnAPIGritona">Gritar</button>
+    </fieldset>
+  </form>
+
+  <article id="divGritona" aria-busy="true"></article>
+
+  <p><strong>Nota:</strong> si la url es sencilla podemos escribirla a mano (<code>http://localhost:3000/api/gritona?texto=Javier</code>), pero ¿qué pasa si el texto a mandar tiene espacios, signos como &gt;, &gt; o &amp;? ¿Cómo los codificamos? Por eso es mejor usar el método descrito arriba.</p>
+
+  
+  <h2>Cuarto ejercicio</h2>
+  <p>Haz que cuando se pulse el botón de abajo se produzca una petición a la API a la URL <a href="http://localhost:3000/api/alumno">http://localhost:3000/api/alumno</a> y se muestre en la consola lo que el devuelva el servidor.</p>
+  <button id="btnTodosLosAlumnos">Recuperar todos los alumnos</button>
+
+  <h2>Quinto ejercicio</h2>
+
+  <p>Para empezar haz que cuando se pulse el botón de abajo ocurra lo siguiente:</p>
+  <ul>
+    <li>Se realice una petición de tipo <code>GET</code> a <code>/altaAlumno</code></li>
+    <li>Si se produce un error en la petición muestra un mensaje en un alert</li>
+    <li>Si el servidor responde correctamente, haz que el contenido de la respuesta se muestre en el <code>&lt;main&gt;</code> con un <code>innerHTML</code>. Luego elimina el botón de la web.</li>
+  </ul>
+
+  <button id="btnPantallaAltaAlumnos">Alta de alumnos</button>
+
+  <main class="container">
+  </main>
+
+  <p>Una vez realizado esa parte haz que al pulsar el botón del formulario se cree un nuevo alumno en el <em>backend</em> con los datos del formulario.</p>
+
+  <p>Intenta usar este método para crear el objeto a mandar al servidor:</p>
+<pre>
+  const fdata = new FormData( frmRegistroAlumno);
+  //Validar los datos en el objeto
+  const alumno = Object.fromEntries(fdata.entries());
+</pre>
+  <p>La petición para crear un usuario será de tipo <code>POST</code> sobre <code>http://localhost:3000/api/alumno</code>.</p>
+
+  <p><strong>Nota:</strong> recuerda que en el objeto de opciones del <code>fetch</code> habrá que indicar el que el método será POST (<code>method:"POST"</code>) y que se van a mandar los datos como JSON (<code>headers: {"Content-type" : "application/json"}</code>).
+</p>
+</body>
+</html>
