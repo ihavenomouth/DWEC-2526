@@ -5,7 +5,13 @@ GET http://localhost:3000/api/gritona?texto=hola%20mundo
 GET http://localhost:3000/api/alumno
 
 ### Obtener un alumno por ID (ejemplo: ID 1)
-GET http://localhost:3000/api/alumno/1
+GET http://localhost:3000/api/alumno/2
+
+### Alumno no existe
+GET http://localhost:3000/api/alumno/123
+
+### Pantalla de alta de alumnos
+GET http://localhost:3000/altaAlumno
 
 
 ### Crear un nuevo alumno (Este endpoint falla el 50% de las veces)

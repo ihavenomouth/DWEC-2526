@@ -61,7 +61,7 @@ button{
     background-color: #0002;
   }
   /* Cuando sea estándar en todos los navegadores, usar left: 2rem;*/
-  /* left: 2rem; */
+  left: 2rem;
 }
 
 [popover]>ul{

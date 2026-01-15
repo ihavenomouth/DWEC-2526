@@ -64,11 +64,11 @@
     <fieldset role="group">
       <legend>Prueba de la API gritona</legend>
         <input type="text" name="txtGritar" id="txtGritar" placeholder="¡hola caracolaaaaaa!">
-      <button id="btnAPIGritona">Gritar</button>
+      <button type="button" id="btnAPIGritona">Gritar</button>
     </fieldset>
   </form>
 
-  <article id="divGritona" aria-busy="true"></article>
+  <article id="divGritona"></article>
 
   <p><strong>Nota:</strong> si la url es sencilla podemos escribirla a mano (<code>http://localhost:3000/api/gritona?texto=Javier</code>), pero ¿qué pasa si el texto a mandar tiene espacios, signos como &gt;, &gt; o &amp;? ¿Cómo los codificamos? Por eso es mejor usar el método descrito arriba.</p>
 
