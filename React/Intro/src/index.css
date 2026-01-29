@@ -1,0 +1,13 @@
+/* Global variables. */
+:root {
+  --accent: #0d47a1;
+  --accent-hover: #1266e2;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #0d47a1;
+    --accent-hover: #1266e2;
+  }
+}
