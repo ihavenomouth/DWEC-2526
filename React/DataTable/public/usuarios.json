@@ -1,0 +1,10 @@
+[
+  {"id": 1, "nombre": "Javier Mancera", "rol": "admin"},
+  {"id": 2, "nombre": "Juan Vílches", "rol": "user"},
+  {"id": 3, "nombre": "Carlos Rodríguez", "rol": "user"},
+  {"id": 4, "nombre": "Marcos Alonso", "rol": "user"},
+  {"id": 5, "nombre": "Mariano Delgado", "rol": "admin"},
+  {"id": 6, "nombre": "Pedro Páramo", "rol": "user"},
+  {"id": 7, "nombre": "Ana Fernández", "rol": "user"},
+  {"id": 8, "nombre": "Inmaculada Pérez", "rol": "admin"}
+]
