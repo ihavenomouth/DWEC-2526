@@ -1,0 +1,27 @@
+GET http://localhost:3000/api/biblioteca HTTP/1.1
+
+###
+
+GET http://localhost:3000/api/biblioteca/5 HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/biblioteca  HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "TailwindCSS",
+    "descripción": "Biblioteca de CSS con clases de utilidada."
+}
+
+###
+
+DELETE http://localhost:3000/api/biblioteca/57  HTTP/1.1
+###
+
+PUT http://localhost:3000/api/biblioteca/3  HTTP/1.1
+
+
+###
+
+GET http://localhost:3000/saludo  HTTP/1.1
