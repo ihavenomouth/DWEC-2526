@@ -12,6 +12,16 @@ app.use( express.json() );
 // <form method="post" action="/api/biblioteca">...</form>
 app.use( express.urlencoded({extended:true}) );
 
+// Esto nos permite leer la información que el cliente mande a través de cookies
+import cookieParser from 'cookie-parser';
+app.use(cookieParser());
+
+
+
+// import time from './middleware/time.js';
+// app.use(time);
+
+
 
 // Servimos los ficheros estáticos (html, css, js, imágenes...).
 // Equivalente a las vistas
@@ -27,6 +37,7 @@ app.use("/api/biblioteca", bibliotecaRouter);
 // Definimos las rutas de los usuarios
 import usuarioRouter from './routes/usuario.routes.js';
 app.use("/api/usuario", usuarioRouter);
+
 
 
 // Gestionamos el acceso a endpoints que no existen

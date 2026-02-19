@@ -1,5 +1,6 @@
 import UsuarioModel from "../models/usuario.model.js";
 import argon2 from 'argon2';
+import jwt from "jsonwebtoken";
 
 
 // El controlador se encarga de: 
@@ -11,6 +12,10 @@ class UsuarioController {
 
 
   static getUsuarios(req,res){
+    if(!req.admin){
+      res.status(401).send("No tiene permisos para realizar la operación");
+      return;
+    }
     const usuarios = UsuarioModel.getUsuarios();
     res.send(usuarios);    
   }
@@ -19,6 +24,12 @@ class UsuarioController {
 
 
   static getUsuario(req,res){
+    
+    if(!req.admin){
+      res.status(401).send("No tiene permisos para realizar la operación");
+      return;
+    }
+
     const id = req.params.id;
     const usuario = UsuarioModel.getUsuario(id);
 
@@ -47,9 +58,14 @@ class UsuarioController {
   static modificarUsuario(req,res){
     const id = req.params.id;
     const nombre = req.body.nombre;
-    const descripción = req.body.descripción;
+    const email = req.body.email;
     
-    const usuario = UsuarioModel.modificarUsuario(id, nombre, descripción);
+    if(!req.admin && req.id != id ){
+      res.status(401).send("No tiene permisos para realizar la operación");
+      return;
+    }
+
+    const usuario = UsuarioModel.modificarUsuario(id, nombre, email);
     
     if(usuario)
       res.send(usuario);
@@ -64,24 +80,64 @@ class UsuarioController {
     const {nombre,email,clave} = req.body;
 
     try {
-      const hash = await argon2.hash("claveclavelosa138_ñç+o=");
-      console.log(hash);
-      return;
-    } catch (err) {
-      
-    }
-    
-    
-    const usuario = UsuarioModel.crearUsuario(nombre, email,clave);
+      const claveHash = await argon2.hash(clave);
+      const id = UsuarioModel.crearUsuario(nombre, email,claveHash);
 
-    if(usuario)
-      res.send(usuario);
-    else{
-      res.status(404).send("No se pudo crear el usuario");
+      if(id){
+        res.send({id,nombre,email});
+      }
+      else{
+        res.status(500).send("No se pudo crear el usuario");
+      }
+      
+    } catch (err) {
+      res.status(500).send("No se pudo crear el usuario");
     }
-  
   }
 
+
+
+  static async loginUsuario(req,res){
+    // Recuperamos los datos de la petición
+    const {email, clave} = req.body;
+
+    console.log(email, clave)
+
+    try {
+      // Intentamos recuperar el usuario que tiene el email de la petición
+      const usuario = UsuarioModel.getUsuarioByEmail(email);
+
+      if (await argon2.verify(usuario.clave, clave)) {
+
+        //generar el token
+        const admin = email == process.env.CORREO_ADMIN ? true : false;
+
+        const token = jwt.sign(
+          { 
+            id: usuario.id,
+            email: email,
+            admin: admin
+          },
+         process.env.CLAVE_CIFRADO_TOKEN);
+
+        // Si la clave es correcta
+        res.cookie("token", token,
+        {
+          httpOnly: true,
+          maxAge: 3600 *1000 * 10,
+          path: "/",
+          secure: false, // En producción debe ser true
+          sameSite: "strict"
+        }).send({id: usuario.id, nombre: usuario.nombre, email: usuario.email});
+
+      } else {
+        // Si la clave no es correcta
+        res.status(401).send("No se pudo realizar el proceso de login.");
+      }
+    } catch (err) {
+      res.status(401).send("No se pudo realizar el proceso de login.");
+    }
+  }
 
 }
 

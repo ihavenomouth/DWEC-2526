@@ -14,6 +14,12 @@ class UsuarioModel {
       return query.get(id);
     }
 
+    static getUsuarioByEmail(email){
+      // return arrUsuarios.find(b=>b.id == id);
+      const query = database.prepare('SELECT * FROM usuario WHERE email=?;');
+      return query.get(email);
+    }
+
 
 
     static eliminarUsuario(id){
@@ -38,12 +44,12 @@ class UsuarioModel {
 
 
     static crearUsuario(nombre, email,clave){
-      const query = database.prepare('INSERT INTO usuario(nombre,descripción) VALUES(?,?);');
-      const resultado = query.run(nombre, descripción);
+      const query = database.prepare('INSERT INTO usuario(nombre,email,clave) VALUES(?,?,?);');
+      const resultado = query.run(nombre, email, clave);
       if(resultado.changes == 0)
         return null;
       else
-        return resultado;
+        return resultado.lastInsertRowid;
     }
 
 

@@ -45,3 +45,13 @@ content-type: application/json
     "email": "j@j.es",
     "clave": "1234"
 }
+
+
+### Login
+POST http://localhost:3000/api/usuario/login  HTTP/1.1
+content-type: application/json
+
+{
+    "email": "j@j.es",
+    "clave": "1234"
+}
