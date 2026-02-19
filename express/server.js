@@ -13,7 +13,6 @@ app.use( express.json() );
 app.use( express.urlencoded({extended:true}) );
 
 
-
 // Servimos los ficheros estáticos (html, css, js, imágenes...).
 // Equivalente a las vistas
 // app.use(express.static('public'));
@@ -25,6 +24,9 @@ app.use(express.static(join(import.meta.dirname, 'public')))
 import bibliotecaRouter from './routes/biblioteca.routes.js';
 app.use("/api/biblioteca", bibliotecaRouter);
 
+// Definimos las rutas de los usuarios
+import usuarioRouter from './routes/usuario.routes.js';
+app.use("/api/usuario", usuarioRouter);
 
 
 // Gestionamos el acceso a endpoints que no existen
@@ -32,10 +34,11 @@ app.use((req, res, next) => {
   res.status(404).send("Recurso no encontrado");
 });
 
+
 // Gestión de errores genérico
 app.use((err, req, res, next) => {
   console.error(err.stack)
-  res.status(500).send('Algo malo pasó')
+  res.status(500).send('Algo malo pasó.' + err.message)
 });
 
 

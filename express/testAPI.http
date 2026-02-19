@@ -2,7 +2,7 @@ GET http://localhost:3000/api/biblioteca HTTP/1.1
 
 ###
 
-GET http://localhost:3000/api/biblioteca/5 HTTP/1.1
+GET http://localhost:3000/api/biblioteca/1 HTTP/1.1
 
 ###
 
@@ -10,18 +10,38 @@ POST http://localhost:3000/api/biblioteca  HTTP/1.1
 content-type: application/json
 
 {
-    "nombre": "TailwindCSS",
-    "descripción": "Biblioteca de CSS con clases de utilidada."
+    "nombre": "React",
+    "descripción": "Biblioteca para crear interfaces"
 }
 
 ###
 
-DELETE http://localhost:3000/api/biblioteca/57  HTTP/1.1
+DELETE http://localhost:3000/api/biblioteca/1  HTTP/1.1
 ###
 
-PUT http://localhost:3000/api/biblioteca/3  HTTP/1.1
 
+
+
+PUT http://localhost:3000/api/biblioteca/3  HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "Wouter",
+    "descripción": "Enrutador."
+}
 
 ###
 
 GET http://localhost:3000/saludo  HTTP/1.1
+
+
+###
+
+POST http://localhost:3000/api/usuario  HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "Javier",
+    "email": "j@j.es",
+    "clave": "1234"
+}
